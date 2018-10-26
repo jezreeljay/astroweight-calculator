@@ -30,6 +30,7 @@ reversePlanets.forEach(addPlanet);
   function addPlanet(item) {
     let planet = document.createElement('option');
     planet.innerHTML = item[0];
+    planet.value = planet.innerHTML;
     document.getElementById('planets').appendChild(planet);
   }
   
@@ -39,16 +40,19 @@ reversePlanets.forEach(addPlanet);
     return userWeight * planetWeight;
   }
   
+
   function handleClickEvent() {
     // 3. Create a variable called userWeight and assign the value of the user's weight.
-    // 4. Create a variable called planetName and assign the name of the selected planet from the drop down.
-    // 5. Create a variable called result and assign the value of the new calculated weight.
-    let planetName = document.getElementById('planets').selectedIndex;
     let userWeight = document.getElementById('user-weight').value;  
+    // 4. Create a variable called planetName and assign the name of the selected planet from the drop down.
+    let planetName = document.getElementById('planets').selectedIndex;
+    // 5. Create a variable called result and assign the value of the new calculated weight.
     let result = calculateWeight(userWeight, planetName);
+    
+    
 
     // 6. Write code to display the message shown in the screenshot.
-    document.getElementById("output").innerHTML = "On " + planets[planetName][0] + "," + " you'd be " + result + "lbs.";
+    document.getElementById("output").innerHTML = `If you were on ${planets[planetName][0]}, you would weigh ${result}lbs!`;
     
   }
   // 7. Set the #calculate-button element's onclick method to use the handleClickEvent function.
